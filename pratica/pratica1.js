@@ -3,7 +3,8 @@
 console.log("Olá, mundo!");
 console.log(10+5);
 console.log("Meu nome é Katheriny");
-console.log("teste); // Erro de sintaxe: falta de aspas
+console.log("teste);
+// Erro de sintaxe: falta de aspas
 console.log("teste"); // Corrigido
 // Fim do programa
 
