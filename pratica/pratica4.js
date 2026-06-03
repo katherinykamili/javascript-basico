@@ -29,9 +29,41 @@ switch (dia) {
 // Mostra o dia da semana referente ao número da variável dia, ou "Dia inválido" se não for de 1 a 3
 
 // 3 - Resolva um problema com ternário
-let temperatura = 30;
+let temp = 30;
 let clima = temp > 25 ? "Quente" : "Frio";
 console.log(clima);
 // Mostra "Quente" se a temperatura for maior que 25, caso contrário mostra "Frio"
 
 //  4 - Combine if com &&
+let maiorIdade = true;
+let temCarteira = true;
+if (maiorIdade && temCarteira) {
+    console.log("Pode dirigir");
+}
+// Mostra "Pode dirigir" se as duas condições forem verdadeiras, caso contrário não mostra nada
+
+// 5 - Verifique se um número está em um intervalo
+let num = 15;
+if (num >= 10 && num <= 20) {
+    console.log("Dentro");
+} else {
+    console.log("Fora");
+}
+// Mostra "Dentro" se o número estiver entre 10 e 20, se não mostra "Fora"
+
+// 6 - Reescreva if/else como switch
+let cor = "Verde";
+switch (cor) {
+    case "Vermelho":
+        console.log("Pare");
+        break;
+    case "Amarelo":
+        console.log("Atenção");
+        break;
+    case "Verde":
+        console.log("Siga");
+        break;
+    default:
+        console.log("Cor inválida");
+}
+// Mostra a cor correspondente à cor do semáforo, ou "Cor inválida" se não for Vermelho, Amarelo ou Verde
