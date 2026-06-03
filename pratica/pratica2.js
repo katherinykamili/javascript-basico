@@ -33,7 +33,7 @@ let resultado = numero + 100;
 console.log(resultado);
 
 // Teste escopo com bloco de código
-let mensagem = "Fora"; {let mensagem = "Dentro";}
+let mensagem = "Fora"; { let mensagem = "Dentro"; }
 console.log(mensagem);
 
 // Renomeie variáveis seguindo padrão camelCase

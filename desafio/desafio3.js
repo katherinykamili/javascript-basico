@@ -20,6 +20,6 @@ console.log(resultado);
 // Mostra o resultado da verificação das duas condições
 
 // 4 - Use o operador ternário para decidir entre dois valores e exiba o resultado
-let valor = a > b ? "Maior": "Menor";
+let valor = a > b ? "Maior" : "Menor";
 console.log(valor);
 // Mostra "Maior" se a for maior que b, se não mostra "Menor"
