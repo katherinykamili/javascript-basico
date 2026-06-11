@@ -68,8 +68,14 @@ if (letra === "A" || letra === "E" || letra === "I" || letra === "O" || letra ==
 
 let nota1 = 9,5;
 let nota2 = 5,7;
-let media = (nota1 = nota2)
-
+let media = (nota1 + nota2) / 2;
+if (media >= 7) {
+    console.log("Aprovado");
+} else if (media === 10) {
+    console.log("Aprovado com Distinção");
+} else (media < 7){
+    console.log("Reprovado");
+}
 
 //  6. Maior de três números
 // Faça um programa que leia três números e mostre o maior deles.
