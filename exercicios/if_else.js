@@ -205,49 +205,71 @@ if (turno === "M") {
 // - Valor do aumento;
 // - Novo salário.
 
-// SOLUÇÃO:
-const salario = Number(input("Digite o salário atual: R$ "));
-let percentual, aumento, novoSalario;
+const salario = Number(input("Digite o salário do colaborador: R$ "));
+let percentual, valorAumento, novoSalario;
 
 if (salario <= 280) {
-  percentual = 20;
+    percentual = 20;
 } else if (salario <= 700) {
-  percentual = 15;
+    percentual = 15;
 } else if (salario <= 1500) {
-  percentual = 10;
+    percentual = 10;
 } else {
-  percentual = 5;
+    percentual = 5;
 }
-
-aumento = (salario * percentual) / 100;
-novoSalario = salario + aumento;
-
-console.log(`Salário antes do reajuste: R$ ${salario.toFixed(2)}`);
-console.log(`Percentual aplicado: ${percentual}%`);
-console.log(`Valor do aumento: R$ ${aumento.toFixed(2)}`);
-console.log(`Novo salário: R$ ${novoSalario.toFixed(2)}`);
+valorAumento = salario * (percentual / 100);
+novoSalario = salario + valorAumento;
+console.log("Salário antes do reajuste: R$ ", salario.toFixed(2));
+console.log("Percentual aplicado: ", percentual, "%");
+console.log("Valor do aumento: R$ ", valorAumento.toFixed(2));
+console.log("Novo salário: R$ ", novoSalario.toFixed(2));
 
 // 12. Folha de pagamento
-// Faça um programa que calcule o salário líquido com descontos de IR, INSS e FGTS.
-// SOLUÇÃO:
-const valorHora = Number(input("Digite o valor da hora trabalhada: R$ "));
-const horasTrabalhadas = Number(input("Digite o número de horas trabalhadas no mês: "));
-const salarioBruto = valorHora * horasTrabalhadas;
-const ir = salarioBruto * 0.11; // 11% IR
-const inss = salarioBruto * 0.10; // 10% INSS
-const sindicato = salarioBruto * 0.03; // 3% Sindicato
-const fgts = salarioBruto * 0.11; // 11% FGTS
-const descontos = ir + inss + sindicato;
-const salarioLiquido = salarioBruto - descontos;
+// Faça um programa para cálculo de folha de pagamento.
+// O programa deverá pedir:
+// - Valor da hora trabalhada;
+// - Quantidade de horas trabalhadas no mês.
 
-console.log("\n--- Folha de Pagamento ---");
-console.log(`Salário Bruto: R$ ${salarioBruto.toFixed(2)}`);
-console.log(`(-) IR (11%): R$ ${ir.toFixed(2)}`);
-console.log(`(-) INSS (10%): R$ ${inss.toFixed(2)}`);
-console.log(`(-) Sindicato (3%): R$ ${sindicato.toFixed(2)}`);
-console.log(`FGTS (11%): R$ ${fgts.toFixed(2)}`);
-console.log(`Total de descontos: R$ ${descontos.toFixed(2)}`);
-console.log(`Salário Líquido: R$ ${salarioLiquido.toFixed(2)}`);
+// Desconto do IR
+// | Salário Bruto | IR |
+// |--------------|----|
+// | Até R$ 900,00 | Isento |
+// | Até R$ 1.500,00 | 5% |
+// | Até R$ 2.500,00 | 10% |
+// | Acima de R$ 2.500,00 | 20% |
+
+// Considere:
+// - INSS: 10%
+// - Sindicato: 3%
+// - FGTS: 11% (não é descontado)
+
+// Exemplo de saída:
+// ```text
+// Salário Bruto (5 * 220)     : R$ 1100,00
+// (-) IR (5%)                : R$   55,00
+// (-) INSS (10%)             : R$  110,00
+// FGTS (11%)                 : R$  121,00
+// Total de descontos         : R$  165,00
+// Salário Líquido            : R$  935,00
+// ```
+
+const valorHora = Number(prompt("Digite o valor da hora trabalhada: R$ "));
+const horasTrabalhadas = Number(prompt("Digite a quantidade de horas trabalhadas no mês: "));
+const salarioBruto = valorHora * horasTrabalhadas;
+const ir = salarioBruto * 0.11;
+const inss = salarioBruto * 0.10;
+const sindicato = salarioBruto * 0.03;
+const fgts = salarioBruto * 0.11;
+const totalDescontos = ir + inss + sindicato;
+const salarioLiquido = salarioBruto - totalDescontos;
+
+console.log('salário bruto: R$ ', salarioBruto.toFixed(2));
+console.log('(-) IR (11%): R$ ', ir.toFixed(2));
+console.log('(-) INSS (10%): R$ ', inss.toFixed(2));
+console.log('(-) Sindicato (3%): R$ ', sindicato.toFixed(2));
+console.log('FGTS (11%): R$ ', fgts.toFixed(2));
+console.log('Total de descontos: R$ ', totalDescontos.toFixed(2));
+console.log('Salário Líquido: R$ ', salarioLiquido.toFixed(2));
 
 // 13. Dia da semana
 // Leia um número (1 a 7) e exiba o dia da semana correspondente ou "Valor inválido".
