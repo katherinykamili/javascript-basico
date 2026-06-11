@@ -5,12 +5,28 @@
 
 // > Dica: para realizar a inserção de dados pelo usuário utilize a função `input("texto para o usuario")`.
 
+let num1 = 10;
+let num2 = 20;
+if (num1 > num2) {
+    console.log("O maior número é: ", num1);
+} else if (num2 > num1) {
+    console.log("O maior número é: ", num2);
+} else {
+    console.log("Os números são iguais.");
+}
 
 
 //  2. Número positivo ou negativo
 // Faça um programa que peça um valor e mostre na tela se o valor é positivo ou negativo.
 
-
+let numero = -8
+if (numero > 0) {
+    console.log("O número é positivo.");
+} else if (numero < 0) {
+    console.log("O número é negativo.");
+} else {
+    console.log("O número é zero.");
+}
 
 //  3. Identificação de sexo
 // Faça um programa que verifique se uma letra digitada é **"F"** ou **"M"**.
@@ -21,12 +37,25 @@
 // - M → Masculino
 // - Qualquer outra letra → Sexo inválido
 
+let sexo = "F";
+if (sexo === "F") {
+    console.log("Feminino");
+} else if (sexo === "M") {
+    console.log("Masculino");
+} else {
+    console.log ("Sexo inválido");
+}
 
 
 //  4. Vogal ou consoante
 // Faça um programa que verifique se uma letra digitada é vogal ou consoante.
 
-
+let letra = "A";
+if (letra === "A" || letra === "E" || letra === "I" || letra === "O" || letra === "U") {
+    console.log("Vogal");
+} else {
+    console.log("Consoante");
+}
 
 //  5. Média de notas
 // Faça um programa para a leitura de duas notas parciais de um aluno.
@@ -37,6 +66,9 @@
 // - **Aprovado com Distinção**, se a média for igual a 10;
 // - **Reprovado**, se a média for menor que 7.
 
+let nota1 = 9,5;
+let nota2 = 5,7;
+let media = (nota1 = nota2)
 
 
 //  6. Maior de três números
