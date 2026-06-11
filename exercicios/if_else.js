@@ -205,231 +205,370 @@ if (turno === "M") {
 // - Valor do aumento;
 // - Novo salário.
 
+// SOLUÇÃO:
+const salario = Number(input("Digite o salário atual: R$ "));
+let percentual, aumento, novoSalario;
 
+if (salario <= 280) {
+  percentual = 20;
+} else if (salario <= 700) {
+  percentual = 15;
+} else if (salario <= 1500) {
+  percentual = 10;
+} else {
+  percentual = 5;
+}
+
+aumento = (salario * percentual) / 100;
+novoSalario = salario + aumento;
+
+console.log(`Salário antes do reajuste: R$ ${salario.toFixed(2)}`);
+console.log(`Percentual aplicado: ${percentual}%`);
+console.log(`Valor do aumento: R$ ${aumento.toFixed(2)}`);
+console.log(`Novo salário: R$ ${novoSalario.toFixed(2)}`);
 
 // 12. Folha de pagamento
-// Faça um programa para cálculo de folha de pagamento.
+// Faça um programa que calcule o salário líquido com descontos de IR, INSS e FGTS.
+// SOLUÇÃO:
+const valorHora = Number(input("Digite o valor da hora trabalhada: R$ "));
+const horasTrabalhadas = Number(input("Digite o número de horas trabalhadas no mês: "));
+const salarioBruto = valorHora * horasTrabalhadas;
+const ir = salarioBruto * 0.11; // 11% IR
+const inss = salarioBruto * 0.10; // 10% INSS
+const sindicato = salarioBruto * 0.03; // 3% Sindicato
+const fgts = salarioBruto * 0.11; // 11% FGTS
+const descontos = ir + inss + sindicato;
+const salarioLiquido = salarioBruto - descontos;
 
-// O programa deverá pedir:
+console.log("\n--- Folha de Pagamento ---");
+console.log(`Salário Bruto: R$ ${salarioBruto.toFixed(2)}`);
+console.log(`(-) IR (11%): R$ ${ir.toFixed(2)}`);
+console.log(`(-) INSS (10%): R$ ${inss.toFixed(2)}`);
+console.log(`(-) Sindicato (3%): R$ ${sindicato.toFixed(2)}`);
+console.log(`FGTS (11%): R$ ${fgts.toFixed(2)}`);
+console.log(`Total de descontos: R$ ${descontos.toFixed(2)}`);
+console.log(`Salário Líquido: R$ ${salarioLiquido.toFixed(2)}`);
 
-// - Valor da hora trabalhada;
-// - Quantidade de horas trabalhadas no mês.
+// 13. Dia da semana
+// Leia um número (1 a 7) e exiba o dia da semana correspondente ou "Valor inválido".
+// SOLUÇÃO:
+const diaSemana = Number(input("Digite um número de 1 a 7: "));
 
-// Desconto do IR
+switch (diaSemana) {
+  case 1:
+    console.log("Domingo");
+    break;
+  case 2:
+    console.log("Segunda-feira");
+    break;
+  case 3:
+    console.log("Terça-feira");
+    break;
+  case 4:
+    console.log("Quarta-feira");
+    break;
+  case 5:
+    console.log("Quinta-feira");
+    break;
+  case 6:
+    console.log("Sexta-feira");
+    break;
+  case 7:
+    console.log("Sábado");
+    break;
+  default:
+    console.log("Valor inválido");
+}
 
-// | Salário Bruto | IR |
-// |--------------|----|
-// | Até R$ 900,00 | Isento |
-// | Até R$ 1.500,00 | 5% |
-// | Até R$ 2.500,00 | 10% |
-// | Acima de R$ 2.500,00 | 20% |
+// 14. Conceito por média
+// Leia duas notas, calcule a média e exiba o conceito (A a E) e a situação (Aprovado ou Reprovado).
+// SOLUÇÃO:
+const notaE1 = Number(input("Digite a primeira nota: "));
+const notaE2 = Number(input("Digite a segunda nota: "));
+const mediaE = (notaE1 + notaE2) / 2;
+let conceito, situacao;
 
-// Considere:
+if (mediaE >= 9 && mediaE <= 10) {
+  conceito = "A";
+  situacao = "Aprovado";
+} else if (mediaE >= 7.5 && mediaE < 9) {
+  conceito = "B";
+  situacao = "Aprovado";
+} else if (mediaE >= 6 && mediaE < 7.5) {
+  conceito = "C";
+  situacao = "Aprovado";
+} else if (mediaE >= 4 && mediaE < 6) {
+  conceito = "D";
+  situacao = "Reprovado";
+} else if (mediaE >= 0 && mediaE < 4) {
+  conceito = "E";
+  situacao = "Reprovado";
+} else {
+  conceito = "Inválido";
+  situacao = "Inválido";
+}
 
-// - INSS: 10%
-// - Sindicato: 3%
-// - FGTS: 11% (não é descontado)
+console.log(`Média: ${mediaE.toFixed(1)}`);
+console.log(`Conceito: ${conceito}`);
+console.log(`Situação: ${situacao}`);
 
-// Exemplo de saída:
+// 15. Tipos de triângulo
+// Peça três lados, verifique se formam um triângulo e classifique em Equilátero, Isósceles ou Escaleno.
+// SOLUÇÃO:
+const ladoA = Number(input("Digite o primeiro lado: "));
+const ladoB = Number(input("Digite o segundo lado: "));
+const ladoC = Number(input("Digite o terceiro lado: "));
 
-// ```text
-// Salário Bruto (5 * 220)     : R$ 1100,00
-// (-) IR (5%)                : R$   55,00
-// (-) INSS (10%)             : R$  110,00
-// FGTS (11%)                 : R$  121,00
-// Total de descontos         : R$  165,00
-// Salário Líquido            : R$  935,00
-// ```
+if (ladoA < ladoB + ladoC && ladoB < ladoA + ladoC && ladoC < ladoA + ladoB) {
+  if (ladoA === ladoB && ladoB === ladoC) {
+    console.log("Triângulo Equilátero");
+  } else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {
+    console.log("Triângulo Isósceles");
+  } else {
+    console.log("Triângulo Escaleno");
+  }
+} else {
+  console.log("Não é um triângulo válido");
+}
+
+// 16. Equação do segundo grau
+// Calcule as raízes de ax² + bx + c = 0, validando os casos de a=0 e o valor de Delta.
+// SOLUÇÃO:
+const a = Number(input("Digite o valor de a: "));
+const b = Number(input("Digite o valor de b: "));
+const c = Number(input("Digite o valor de c: "));
+
+if (a === 0) {
+  console.log("Não é uma equação do segundo grau (a não pode ser zero).");
+} else {
+  const delta = (b * b) - (4 * a * c);
+  if (delta < 0) {
+    console.log("Não existem raízes reais.");
+  } else if (delta === 0) {
+    const x = -b / (2 * a);
+    console.log(`Delta = ${delta}. Raiz única: x = ${x.toFixed(2)}`);
+  } else {
+    const x1 = (-b + Math.sqrt(delta)) / (2 * a);
+    const x2 = (-b - Math.sqrt(delta)) / (2 * a);
+    console.log(`Delta = ${delta}. Raízes: x1 = ${x1.toFixed(2)}, x2 = ${x2.toFixed(2)}`);
+  }
+}
+
+// 17. Ano bissexto
+// Leia um ano e informe se é bissexto.
+// Ano bissexto: divisível por 4, mas não por 100, exceto se divisível por 400.
+// SOLUÇÃO:
+const ano = Number(input("Digite um ano: "));
+
+if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
+  console.log(`${ano} é um ano bissexto.`);
+} else {
+  console.log(`${ano} não é um ano bissexto.`);
+}
+
+// 18. Par ou ímpar
+// Leia um inteiro e determine se é par ou ímpar.
+// SOLUÇÃO:
+const numero18 = Number(input("Digite um número inteiro: "));
+
+if (Number.isInteger(numero18)) {
+  if (numero18 % 2 === 0) {
+    console.log("O número é par.");
+  } else {
+    console.log("O número é ímpar.");
+  }
+} else {
+  console.log("Por favor, digite um número inteiro.");
+}
+
+// 19. Características de um número
+// Leia um número e indique se é (Par/Ímpar) e (Positivo/Negativo).
+// SOLUÇÃO:
+const num19 = Number(input("Digite um número: "));
+
+let paridade, sinal;
+
+if (Number.isInteger(num19)) {
+  if (num19 % 2 === 0) {
+    paridade = "Par";
+  } else {
+    paridade = "Ímpar";
+  }
+
+  if (num19 > 0) {
+    sinal = "Positivo";
+  } else if (num19 < 0) {
+    sinal = "Negativo";
+  } else {
+    sinal = "Zero";
+  }
+
+  console.log(`O número é ${paridade} e ${sinal}.`);
+} else {
+  console.log("Por favor, digite um número inteiro.");
+}
+
+// 20. Investigação criminal
+// Faça 5 perguntas sobre um crime e classifique o suspeito.
+// Respostas positivas aumentam a suspeição.
+// SOLUÇÃO:
+let positivas = 0;
+
+const respostas = [
+  "Você telefonou para a vítima? (sim/nao): ",
+  "Você esteve no local do crime? (sim/nao): ",
+  "Você mora perto da vítima? (sim/nao): ",
+  "Você devia para a vítima? (sim/nao): ",
+  "Você já trabalhou com a vítima? (sim/nao): "
+];
+
+for (const pergunta of respostas) {
+  const resp = input(pergunta).toLowerCase();
+  if (resp === "sim") {
+    positivas++;
+  }
+}
+
+if (positivas === 2) {
+  console.log("Suspeita");
+} else if (positivas >= 3 && positivas <= 4) {
+  console.log("Cúmplice");
+} else if (positivas === 5) {
+  console.log("Assassino");
+} else {
+  console.log("Inocente");
+}
+
+// 21. Maior e menor entre dois números
+// Peça dois números e mostre qual o maior e o menor.
+// SOLUÇÃO:
+const n21A = Number(input("Digite o primeiro número: "));
+const n21B = Number(input("Digite o segundo número: "));
+
+if (n21A > n21B) {
+  console.log(`Maior: ${n21A}, Menor: ${n21B}`);
+} else if (n21B > n21A) {
+  console.log(`Maior: ${n21B}, Menor: ${n21A}`);
+} else {
+  console.log("Os números são iguais.");
+}
+
+// 22. Maior e menor entre três inteiros
+// Receba três números e informe o maior e o menor.
+// SOLUÇÃO:
+const x22 = Number(input("Digite o primeiro número: "));
+const y22 = Number(input("Digite o segundo número: "));
+const z22 = Number(input("Digite o terceiro número: "));
+
+let maior22 = x22, menor22 = x22;
+
+if (y22 > maior22) maior22 = y22;
+if (z22 > maior22) maior22 = z22;
+
+if (y22 < menor22) menor22 = y22;
+if (z22 < menor22) menor22 = z22;
+
+console.log(`Maior: ${maior22}`, `Menor: ${menor22}`);
+
+// 23. Par ou ímpar em C
+// Este exercício é em linguagem C, não JavaScript.
+// SOLUÇÃO: Pulado - exercicio em linguagem C.
+console.log("Exercicio 23: Este exercicio e em linguagem C, nao JavaScript.");
+
+// 24. Circunferência
+// Pergunte o raio e mostre diâmetro, comprimento e área.
+// SOLUÇÃO:
+const raio = Number(input("Digite o raio da circunferência: "));
+const pi = 3.14159;
+const diametro = raio * 2;
+const comprimento = 2 * pi * raio;
+const area = pi * (raio * raio);
+
+console.log(`Diâmetro: ${diametro.toFixed(2)}`);
+console.log(`Comprimento: ${comprimento.toFixed(2)}`);
+console.log(`Área: ${area.toFixed(2)}`);
+
+// 25. Doação de sangue
+// Pergunte a idade (18 a 67 anos) e informe se a pessoa pode doar.
+// SOLUÇÃO:
+const idade25 = Number(input("Digite sua idade: "));
+
+if (idade25 >= 18 && idade25 <= 67) {
+  console.log("Você pode doar sangue.");
+} else {
+  console.log("Você não pode doar sangue.");
+}
+
+// 26. Validação de data
+// Pergunte dia, mês e ano e informe se a data é válida (considerando todos os meses com 31 dias).
+// SOLUÇÃO:
+const dia26 = Number(input("Digite o dia: "));
+const mes26 = Number(input("Digite o mês: "));
+const ano26 = Number(input("Digite o ano: "));
+
+let dataValida = true;
+
+if (ano26 < 1 || ano26 > 9999) {
+  dataValida = false;
+} else if (mes26 < 1 || mes26 > 12) {
+  dataValida = false;
+} else if (dia26 < 1 || dia26 > 31) {
+  dataValida = false;
+}
+
+if (dataValida) {
+  console.log(`A data ${dia26}/${mes26}/${ano26} é válida.`);
+} else {
+  console.log(`A data ${dia26}/${mes26}/${ano26} é inválida.`);
+}
+
+// 27. Troca de valores
+// Leia x e y, mostre os valores, troque-os e mostre novamente.
+// SOLUÇÃO:
+let  x27 = Number(input("Digite o valor de x: "));
+let  y27 = Number(input("Digite o valor de y: "));
+
+console.log(`Antes da troca: x = ${x27}, y = ${y27}`);
+
+const temp = x27;
+x27 = y27;
+y27 = temp;
+
+console.log(`Depois da troca: x = ${x27}, y = ${y27}`);
 
 
-//  13. Dia da semana
-// Faça um programa que leia um número e exiba o dia correspondente da semana.
-
-// | Número | Dia |
-// |---------|-----|
-// | 1 | Domingo |
-// | 2 | Segunda |
-// | 3 | Terça |
-// | 4 | Quarta |
-// | 5 | Quinta |
-// | 6 | Sexta |
-// | 7 | Sábado |
-
-// Caso seja digitado outro valor, exiba:
-
-```text
-Valor inválido
-```
-
-//  14. Conceito por média
-// Faça um programa que leia duas notas parciais e calcule a média.
-
-// | Média | Conceito |
-// |---------|----------|
-// | 9,0 a 10,0 | A |
-// | 7,5 a 9,0 | B |
-// | 6,0 a 7,5 | C |
-// | 4,0 a 6,0 | D |
-// | 0 a 4,0 | E |
-
-// Exiba:
-
-// - Notas;
-// - Média;
-// - Conceito;
-// - Situação.
-
-Situação:
-
-// - A, B ou C → APROVADO
-// - D ou E → REPROVADO
-
-
-
-//  15. Tipos de triângulo
-// Faça um programa que peça os três lados de um triângulo.
-
-// Verifique se os lados podem formar um triângulo.
-
-// Se formarem, informe se é:
-
-// - Equilátero → três lados iguais;
-// - Isósceles → dois lados iguais;
-// - Escaleno → três lados diferentes.
-
-/// Dica
-
-// Três lados formam um triângulo quando a soma de quaisquer dois lados é maior que o terceiro.
-
-
-
-//  16. Equação do segundo grau
-// Faça um programa que calcule as raízes da equação:
-
-// ```text
-// ax² + bx + c = 0
-// ```
-
-Regras:
-
-// - Se `a = 0`, a equação não é de segundo grau.
-// - Se `Δ < 0`, não possui raízes reais.
-// - Se `Δ = 0`, possui apenas uma raiz real.
-// - Se `Δ > 0`, possui duas raízes reais.
-
-
-//  17. Ano bissexto
-// Faça um programa que leia um ano e informe se ele é ou não bissexto.
-
-
-//  18. Par ou ímpar
-// Faça um programa que leia um número inteiro e determine se ele é par ou ímpar.
-
-// > Dica: utilize o operador módulo `%`.
-
-
-//  19. Características de um número
-// Faça um programa que leia um número e pergunte qual operação deseja realizar.
-
-// O resultado deve indicar se o número é:
-
-// - Par ou ímpar;
-// - Positivo ou negativo.
-
-
-
-//  20. Investigação criminal
-// Faça um programa que faça as seguintes perguntas:
-
-// 1. Telefonou para a vítima?
-// 2. Esteve no local do crime?
-// 3. Mora perto da vítima?
-// 4. Devia para a vítima?
-// 5. Já trabalhou com a vítima?
-
-Classificação:
-
-// | Respostas positivas | Classificação |
-// |---------------------|--------------|
-// | 2 | Suspeita |
-// | 3 ou 4 | Cúmplice |
-// | 5 | Assassino |
-// | Caso contrário | Inocente |
-
-
-
-//  21. Maior e menor entre dois números
-// Faça um programa que peça dois números ao usuário e mostre qual o maior e qual o menor.
-
-
-
-//  22. Maior e menor entre três inteiros
-// Faça um programa que receba três números inteiros e informe qual deles é o maior e qual é o menor.
-
-// ### Desafio
-// Você consegue criar mais de uma solução?
-
-
-
-//  23. Par ou ímpar em C
-// Escreva um programa em C que receba um número inteiro e diga se ele é par ou ímpar.
-
-// > Dica: utilize o operador `%`.
-
-
-
-//  24. Circunferência
+// 24. Circunferência
 // Escreva um programa que pergunte o raio de uma circunferência e mostre:
-
 // - Diâmetro;
 // - Comprimento;
 // - Área.
+// SOLUÇÃO:
+const raio = Number(input("Digite o raio da circunferência: "));
+const PI = 3.14159265359;
+const diametro = 2 * raio;
+const comprimento = 2 * PI * raio;
+const area = PI * raio * raio;
 
+console.log(`\n--- Circunferência ---`);
+console.log(`Raio: ${raio.toFixed(2)}`);
+console.log(`Diâmetro: ${diametro.toFixed(2)}`);
+console.log(`Comprimento: ${comprimento.toFixed(2)}`);
+console.log(`Área: ${area.toFixed(2)}`);
 
-
-//  25. Doação de sangue
+// 25. Doação de sangue
 // Para doar sangue é necessário ter entre 18 e 67 anos.
-
 // Faça um programa que pergunte a idade de uma pessoa e informe se ela pode doar sangue.
+// > Utilize os operadores lógicos '&&' e '||'.
+// SOLUÇÃO:
+const idade25 = Number(input("Digite a sua idade: "));
+const podeDoar = idade25 >= 18 && idade25 <= 67;
 
-// > Utilize os operadores lógicos `&&` e `||`.
-
-
-
-//  26. Validação de data
-// Escreva um programa que pergunte:
-
-// - Dia;
-// - Mês;
-// - Ano.
-
-// Informe se a data é válida ou não.
-
-// Caso não seja válida, informe o motivo.
-
-//  Considere
-
-// - Todos os meses possuem 31 dias;
-// - O ano atual é 2013.
-
-
-
-//  27. Troca de valores
-// Crie um programa que:
-
-// 1. Leia um número e armazene em `x`;
-// 2. Leia outro número e armazene em `y`;
-// 3. Mostre os valores;
-// 4. Troque os valores entre as variáveis;
-// 5. Mostre os valores após a troca.
-
-// Exemplo:
-```text
-Antes:
-x = 10
-y = 20
-
-Depois:
-x = 20
-y = 10
-```
+if (podeDoar) {
+  console.log(`Você tem ${idade25} anos. Pode doar sangue!`);
+} else {
+  if (idade25 < 18) {
+    console.log(`Você tem ${idade25} anos. É menor de 18 anos. Não pode doar sangue.`);
+  } else {
+    console.log(`Você tem ${idade25} anos. É maior de 67 anos. Não pode doar sangue.`);
+  }
+}
