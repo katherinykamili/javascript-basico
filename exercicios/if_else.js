@@ -66,14 +66,14 @@ if (letra === "A" || letra === "E" || letra === "I" || letra === "O" || letra ==
 // - **Aprovado com Distinção**, se a média for igual a 10;
 // - **Reprovado**, se a média for menor que 7.
 
-let nota1 = 9,5;
-let nota2 = 5,7;
+let nota1 = 9.5;
+let nota2 = 5.7;
 let media = (nota1 + nota2) / 2;
 if (media >= 7) {
     console.log("Aprovado");
 } else if (media === 10) {
     console.log("Aprovado com Distinção");
-} else (media < 7){
+} else {
     console.log("Reprovado");
 }
 
