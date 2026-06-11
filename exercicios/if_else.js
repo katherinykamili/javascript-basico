@@ -4,191 +4,29 @@
 // Faça um programa que peça dois números e imprima o maior deles.
 
 // > Dica: para realizar a inserção de dados pelo usuário utilize a função `input("texto para o usuario")`.
-// SOLUÇÃO:
-const num1 = Number(input("Digite o primeiro número: "));
-const num2 = Number(input("Digite o segundo número: "));
 
+let num1 = 10;
+let num2 = 20;
 if (num1 > num2) {
-  console.log(`O maior número é: ${num1}`);
+    console.log("O maior número é: ", num1);
 } else if (num2 > num1) {
-  console.log(`O maior número é: ${num2}`);
+    console.log("O maior número é: ", num2);
 } else {
-  console.log("Os números são iguais.");
+    console.log("Os números são iguais.");
 }
-// 2. Número positivo ou negativo
-// Faça um programa que peça um valor e mostre na tela se o valor é positivo ou negativo.
-// SOLUÇÃO:
-const valor = Number(input("Digite um valor: "));
-
-if (valor > 0) {
-  console.log("O valor é positivo.");
-} else if (valor < 0) {
-  console.log("O valor é negativo.");
-} else {
-  console.log("O valor é zero.");
-}
-
-// 3. Identificação de sexo
-// Faça um programa que verifique se uma letra digitada é "F" ou "M".
-// Conforme a letra digitada, exiba:
-// - F → Feminino
-// - M → Masculino
-// - Qualquer outra letra → Sexo inválido
-// SOLUÇÃO:
-const sexo = input("Digite seu sexo (F/M): ").toUpperCase();
-
-if (sexo === "F") {
-  console.log("Feminino");
-} else if (sexo === "M") {
-  console.log("Masculino");
-} else {
-  console.log("Sexo inválido");
-}
-
-// 4. Vogal ou consoante
-// Faça um programa que verifique se uma letra digitada é vogal ou consoante.
-// SOLUÇÃO:
-const letra = input("Digite uma letra: ").toLowerCase();
-
-if (letra === "a" || letra === "e" || letra === "i" || letra === "o" || letra === "u") {
-  console.log("A letra é uma vogal.");
-} else if (letra.length === 1 && /[a-z]/.test(letra)) {
-  console.log("A letra é uma consoante.");
-} else {
-  console.log("Entrada inválida. Digite apenas uma letra.");
-}
-
-// 5. Média de notas
-// Faça um programa para a leitura de duas notas parciais de um aluno.
-// Exiba:
-// - "Aprovado", se a média for maior ou igual a 7;
-// - "Aprovado com Distinção", se a média for igual a 10;
-// - "Reprovado", se a média for menor que 7.
-// SOLUÇÃO:
-const nota1 = Number(input("Digite a primeira nota: "));
-const nota2 = Number(input("Digite a segunda nota: "));
-const media = (nota1 + nota2) / 2;
-
-if (media === 10) {
-  console.log("Aprovado com Distinção");
-} else if (media >= 7) {
-  console.log("Aprovado");
-} else {
-  console.log("Reprovado");
-}
-
-// 6. Maior de três números
-// Faça um programa que leia três números e mostre o maior deles.
-// SOLUÇÃO:
-const n1 = Number(input("Digite o primeiro número: "));
-const n2 = Number(input("Digite o segundo número: "));
-const n3 = Number(input("Digite o terceiro número: "));
-
-let maior = n1;
-
-if (n2 > maior) {
-  maior = n2;
-}
-
-if (n3 > maior) {
-  maior = n3;
-}
-
-console.log(`O maior número é: ${maior}`);
-
-// 7. Maior e menor de três números
-// Faça um programa que leia três números e mostre o maior e o menor.
-// SOLUÇÃO:
-const a = Number(input("Digite o primeiro número: "));
-const b = Number(input("Digite o segundo número: "));
-const c = Number(input("Digite o terceiro número: "));
-
-let maiorVal = a;
-let menorVal = a;
-
-if (b > maiorVal) {
-  maiorVal = b;
-}
-if (c > maiorVal) {
-  maiorVal = c;
-}
-
-if (b < menorVal) {
-  menorVal = b;
-}
-if (c < menorVal) {
-  menorVal = c;
-}
-
-console.log(`Maior: ${maiorVal}`);
-console.log(`Menor: ${menorVal}`);
-
-// 8. Produto mais barato
-// Faça um programa que pergunte o preço de três produtos e informe qual comprar (o mais barato).
-// SOLUÇÃO:
-const preco1 = Number(input("Digite o preço do primeiro produto: R$ "));
-const preco2 = Number(input("Digite o preço do segundo produto: R$ "));
-const preco3 = Number(input("Digite o preço do terceiro produto: R$ "));
-
-let maisBarato = preco1;
-let produtoMaisBarato = 1;
-
-if (preco2 < maisBarato) {
-  maisBarato = preco2;
-  produtoMaisBarato = 2;
-}
-
-if (preco3 < maisBarato) {
-  maisBarato = preco3;
-  produtoMaisBarato = 3;
-}
-
-console.log(`O produto mais barato é o ${produtoMaisBarato} com preço R$ ${maisBarato.toFixed(2)}`);
-
-// 9. Ordem decrescente
-// Faça um programa que leia três números e mostre-os em ordem decrescente.
-// SOLUÇÃO:
-const x = Number(input("Digite o primeiro número: "));
-const y = Number(input("Digite o segundo número: "));
-const z = Number(input("Digite o terceiro número: "));
-
-let maior9 = x, meio9 = y, menor9 = z;
-
-// Encontra o maior
-if (y > maior9) maior9 = y;
-if (z > maior9) maior9 = z;
-
-// Encontra o menor
-if (x < menor9) menor9 = x;
-if (y < menor9) menor9 = y;
-
-// O do meio é o que sobrou
-meio9 = (x + y + z) - maior9 - menor9;
-
-console.log(`Ordem decrescente: ${maior9}, ${meio9}, ${menor9}`);
-
-// 10. Turno de estudo
-// Faça um programa que pergunte o turno em que você estuda (M-Matutino, V-Vespertino, N-Noturno)
-// e exiba a saudação correspondente ou "Valor inválido".
-// SOLUÇÃO:
-const turno = input("Digite seu turno de estudo (M/V/N): ").toUpperCase();
-
-if (turno === "M") {
-  console.log("Bom dia!");
-} else if (turno === "V") {
-  console.log("Boa tarde!");
-} else if (turno === "N") {
-  console.log("Boa noite!");
-} else {
-  console.log("Valor inválido");
-}
-
 
 
 //  2. Número positivo ou negativo
 // Faça um programa que peça um valor e mostre na tela se o valor é positivo ou negativo.
 
-
+let numero = -8
+if (numero > 0) {
+    console.log("O número é positivo.");
+} else if (numero < 0) {
+    console.log("O número é negativo.");
+} else {
+    console.log("O número é zero.");
+}
 
 //  3. Identificação de sexo
 // Faça um programa que verifique se uma letra digitada é **"F"** ou **"M"**.
@@ -199,12 +37,25 @@ if (turno === "M") {
 // - M → Masculino
 // - Qualquer outra letra → Sexo inválido
 
+let sexo = "F";
+if (sexo === "F") {
+    console.log("Feminino");
+} else if (sexo === "M") {
+    console.log("Masculino");
+} else {
+    console.log ("Sexo inválido");
+}
 
 
 //  4. Vogal ou consoante
 // Faça um programa que verifique se uma letra digitada é vogal ou consoante.
 
-
+let letra = "A";
+if (letra === "A" || letra === "E" || letra === "I" || letra === "O" || letra === "U") {
+    console.log("Vogal");
+} else {
+    console.log("Consoante");
+}
 
 //  5. Média de notas
 // Faça um programa para a leitura de duas notas parciais de um aluno.
@@ -215,45 +66,125 @@ if (turno === "M") {
 // - **Aprovado com Distinção**, se a média for igual a 10;
 // - **Reprovado**, se a média for menor que 7.
 
-
+let nota1 = 9.5;
+let nota2 = 5.7;
+let media = (nota1 + nota2) / 2;
+if (media >= 7) {
+    console.log("Aprovado");
+} else if (media === 10) {
+    console.log("Aprovado com Distinção");
+} else {
+    console.log("Reprovado");
+}
 
 //  6. Maior de três números
 // Faça um programa que leia três números e mostre o maior deles.
 
-
+let n1 = 15;
+let n2 = 25;
+let n3 = 10;
+let maior = n1;
+if (n2 > maior) {
+    maior = n2;
+}
+if (n3 > maior) {
+    maior = n3;
+}
+console.log("O maior número é: ", maior);
 
 //  7. Maior e menor de três números
 // Faça um programa que leia três números e mostre o maior e o menor deles.
 
-
+const a = 30
+const b = 20
+const c = 10
+let maiorNum = a;
+let menorNum = a;
+if (b > maiorNum) {
+    maiorNum = b;
+}
+if (c > maiorNum) {
+    maiorNum = c;
+}
+if (b < menorNum) {
+    menorNum = b;
+}
+if (c < menorNum) {
+    menorNum = c;
+}
+console.log("O maior número é: ", maiorNum);
+console.log("O menor número é: ", menorNum);
 
 //  8. Produto mais barato
 // Faça um programa que pergunte o preço de três produtos e informe qual produto deve ser comprado, sabendo que a decisão é sempre pelo mais barato.
 
+const preco1 = 50
+const preco2 = 30
+const preco3 = 20
+
+let maisBarato = preco1;
+let produtoMaisBarato = 1;
+
+if (preco2 < maisBarato) {
+    maisBarato = preco2;
+    produtoMaisBarato = 2;
+}
+if (preco3 < maisBarato) {
+    maisBarato = preco3;
+    produtoMaisBarato = 3;
+}
+console.log("O produto mais barato é o produto ", produtoMaisBarato, " com preço R$ ", maisBarato);
 
 
 //  9. Ordem decrescente
 // Faça um programa que leia três números e mostre-os em ordem decrescente.
 
+const numA = 15
+const numB = 25
+const numC = 10
 
+let maiornum = numA, meionum = numB, menornum = numC;
+
+// Verificar o maior número
+if (numB > maiornum) {
+    maiornum = numB;
+    meionum = numA;
+    menornum = numC;
+}
+if (numC > maiornum) {
+    maiornum = numC;
+    meionum = numA;
+    menornum = numB;
+}
+
+// Verificar o menor número
+if (numB < menornum) {
+    menornum = numB;
+    meionum = numA;
+}
+if (numC < menornum) {
+    menornum = numC;
+    meionum = numA;
+}
+
+console.log("Números em ordem decrescente: ", maiornum, meionum, menornum);
 
 //  10. Turno de estudo
 // Faça um programa que pergunte em que turno você estuda.
+// Digite: - M → Matutino - V → Vespertino - N → Noturno
+// Exiba: - "Bom dia!" - "Boa tarde!" - "Boa noite!" - "Valor inválido"
 
-// Digite:
+const turno = input("digite o turno de estudo: M, V ou N");
 
-// - M → Matutino
-// - V → Vespertino
-// - N → Noturno
-
-// Exiba:
-
-// - "Bom dia!"
-// - "Boa tarde!"
-// - "Boa noite!"
-// - "Valor inválido"
-
-
+if (turno === "M") {
+    console.log("Bom dia!");
+} else if (turno === "V") {
+    console.log("Boa tarde!");
+} else if (turno === "N") {
+    console.log("Boa noite!");
+} else {
+    console.log("Valor inválido");
+}
 
 // 11. Reajuste salarial
 // As organizações CSM resolveram dar um aumento de salário aos seus colaboradores.
