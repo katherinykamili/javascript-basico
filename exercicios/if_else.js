@@ -5,7 +5,7 @@
 
 // > Dica: para realizar a inserção de dados pelo usuário utilize a função `input("texto para o usuario")`.
 
-let num1 = 10;
+/*let num1 = 10;
 let num2 = 20;
 if (num1 > num2) {
     console.log("O maior número é: ", num1);
@@ -13,20 +13,20 @@ if (num1 > num2) {
     console.log("O maior número é: ", num2);
 } else {
     console.log("Os números são iguais.");
-}
+}*/
 
 
 //  2. Número positivo ou negativo
 // Faça um programa que peça um valor e mostre na tela se o valor é positivo ou negativo.
 
-let numero = -8
+/*let numero = -8
 if (numero > 0) {
     console.log("O número é positivo.");
 } else if (numero < 0) {
     console.log("O número é negativo.");
 } else {
     console.log("O número é zero.");
-}
+}*/
 
 //  3. Identificação de sexo
 // Faça um programa que verifique se uma letra digitada é **"F"** ou **"M"**.
@@ -37,25 +37,25 @@ if (numero > 0) {
 // - M → Masculino
 // - Qualquer outra letra → Sexo inválido
 
-let sexo = "F";
+/*let sexo = "F";
 if (sexo === "F") {
     console.log("Feminino");
 } else if (sexo === "M") {
     console.log("Masculino");
 } else {
-    console.log ("Sexo inválido");
-}
+    console.log("Sexo inválido");
+}*/
 
 
 //  4. Vogal ou consoante
 // Faça um programa que verifique se uma letra digitada é vogal ou consoante.
 
-let letra = "A";
+/*let letra = "A";
 if (letra === "A" || letra === "E" || letra === "I" || letra === "O" || letra === "U") {
     console.log("Vogal");
 } else {
     console.log("Consoante");
-}
+}*/
 
 //  5. Média de notas
 // Faça um programa para a leitura de duas notas parciais de um aluno.
@@ -66,7 +66,7 @@ if (letra === "A" || letra === "E" || letra === "I" || letra === "O" || letra ==
 // - **Aprovado com Distinção**, se a média for igual a 10;
 // - **Reprovado**, se a média for menor que 7.
 
-let nota1 = 9.5;
+/*let nota1 = 9.5;
 let nota2 = 5.7;
 let media = (nota1 + nota2) / 2;
 if (media >= 7) {
@@ -75,12 +75,12 @@ if (media >= 7) {
     console.log("Aprovado com Distinção");
 } else {
     console.log("Reprovado");
-}
+}*/
 
 //  6. Maior de três números
 // Faça um programa que leia três números e mostre o maior deles.
 
-let n1 = 15;
+/*let n1 = 15;
 let n2 = 25;
 let n3 = 10;
 let maior = n1;
@@ -90,12 +90,12 @@ if (n2 > maior) {
 if (n3 > maior) {
     maior = n3;
 }
-console.log("O maior número é: ", maior);
+console.log("O maior número é: ", maior);*/
 
 //  7. Maior e menor de três números
 // Faça um programa que leia três números e mostre o maior e o menor deles.
 
-const a = 30
+/*const a = 30
 const b = 20
 const c = 10
 let maiorNum = a;
@@ -113,12 +113,12 @@ if (c < menorNum) {
     menorNum = c;
 }
 console.log("O maior número é: ", maiorNum);
-console.log("O menor número é: ", menorNum);
+console.log("O menor número é: ", menorNum);*/
 
 //  8. Produto mais barato
 // Faça um programa que pergunte o preço de três produtos e informe qual produto deve ser comprado, sabendo que a decisão é sempre pelo mais barato.
 
-const preco1 = 50
+/*const preco1 = 50
 const preco2 = 30
 const preco3 = 20
 
@@ -133,13 +133,13 @@ if (preco3 < maisBarato) {
     maisBarato = preco3;
     produtoMaisBarato = 3;
 }
-console.log("O produto mais barato é o produto ", produtoMaisBarato, " com preço R$ ", maisBarato);
+console.log("O produto mais barato é o produto ", produtoMaisBarato, " com preço R$ ", maisBarato);*/
 
 
 //  9. Ordem decrescente
 // Faça um programa que leia três números e mostre-os em ordem decrescente.
 
-const numA = 15
+/*const numA = 15
 const numB = 25
 const numC = 10
 
@@ -167,25 +167,24 @@ if (numC < menornum) {
     meionum = numA;
 }
 
-console.log("Números em ordem decrescente: ", maiornum, meionum, menornum);
+console.log("Números em ordem decrescente: ", maiornum, meionum, menornum);*/
 
 //  10. Turno de estudo
 // Faça um programa que pergunte em que turno você estuda.
 // Digite: - M → Matutino - V → Vespertino - N → Noturno
 // Exiba: - "Bom dia!" - "Boa tarde!" - "Boa noite!" - "Valor inválido"
 
-const turno = prompt("digite o turno de estudo: M, V ou N");
+/*let turno = prompt("digite o turno de estudo: M, V ou N").toLowerCase();
 
-if (turno === "M") {
-    console.log("Bom dia!");
-} else if (turno === "V") {
-    console.log("Boa tarde!");
-} else if (turno === "N") {
-    console.log("Boa noite!");
+if (turno == "m") {
+    alert("Bom dia!")
+} else if (turno == "v") {
+    alert("Boa tarde!")
+} else if (turno == "n") {
+    alert("Boa noite!")
 } else {
-    console.log("Valor inválido");
-}
-
+    alert("Valor inválido")
+}*/
 
 // 11. Reajuste salarial
 // As organizações CSM resolveram dar um aumento de salário aos seus colaboradores.
@@ -206,7 +205,7 @@ if (turno === "M") {
 // - Valor do aumento;
 // - Novo salário.
 
-const salario = Number(prompt("Digite o salário do colaborador: R$ "));
+/*const salario = Number(prompt("Digite o salário do colaborador: R$ "));
 let percentual, valorAumento, novoSalario;
 
 if (salario <= 280) {
@@ -223,7 +222,7 @@ novoSalario = salario + valorAumento;
 console.log("Salário antes do reajuste: R$ ", salario.toFixed(2));
 console.log("Percentual aplicado: ", percentual, "%");
 console.log("Valor do aumento: R$ ", valorAumento.toFixed(2));
-console.log("Novo salário: R$ ", novoSalario.toFixed(2));
+console.log("Novo salário: R$ ", novoSalario.toFixed(2));*/
 
 // 12. Folha de pagamento
 // Faça um programa para cálculo de folha de pagamento.
@@ -254,108 +253,184 @@ console.log("Novo salário: R$ ", novoSalario.toFixed(2));
 // Salário Líquido            : R$  935,00
 // ```
 
-const valorHora = Number(prompt("Digite o valor da hora trabalhada: R$ "));
-const horasTrabalhadas = Number(prompt("Digite a quantidade de horas trabalhadas no mês: "));
-const salarioBruto = valorHora * horasTrabalhadas;
-const ir = salarioBruto * 0.11;
-const inss = salarioBruto * 0.10;
-const sindicato = salarioBruto * 0.03;
-const fgts = salarioBruto * 0.11;
-const totalDescontos = ir + inss + sindicato;
-const salarioLiquido = salarioBruto - totalDescontos;
+/*const valorHora = Number(prompt("Digite o valor da hora trabalhada: R$ "))
+const horasTrabalhadas = Number(prompt("Digite a quantidade de horas trabalhadas no mês: "))
 
-console.log('salário bruto: R$ ', salarioBruto.toFixed(2));
-console.log('(-) IR (11%): R$ ', ir.toFixed(2));
-console.log('(-) INSS (10%): R$ ', inss.toFixed(2));
-console.log('(-) Sindicato (3%): R$ ', sindicato.toFixed(2));
-console.log('FGTS (11%): R$ ', fgts.toFixed(2));
-console.log('Total de descontos: R$ ', totalDescontos.toFixed(2));
-console.log('Salário Líquido: R$ ', salarioLiquido.toFixed(2));
+const salarioBruto = valorHora * horasTrabalhadas
+let percentualIR = 0
+if (salarioBruto <= 900) {
+    percentualIR = 0
+} else if (salarioBruto <= 1500) {
+    percentualIR = 0.5
+} else if (salarioBruto <= 2500) {
+    percentualIR = 0.10
+} else {
+    percentualIR = 0.20
+}
 
-//  13. Dia da semana
-// Faça um programa que leia um número e exiba o dia correspondente da semana.
+const ir = salarioBruto * percentualIR
+const inss = salarioBruto * 0.10
+const sindicato = salarioBruto * 0.03
+const fgts = salarioBruto * 0.11
 
-// | Número | Dia |
-// |---------|-----|
-// | 1 | Domingo |
-// | 2 | Segunda |
-// | 3 | Terça |
-// | 4 | Quarta |
-// | 5 | Quinta |
-// | 6 | Sexta |
-// | 7 | Sábado |
+const totalDescontos = ir + inss + sindicato
+const salarioLiquido = salarioBruto - totalDescontos
 
-// Caso seja digitado outro valor, exiba:
+alert(
+`Salário Bruto: R$ ${salarioBruto.toFixed(2)}
+(-) IR (${percentualIR * 100}%): R$ ${ir.toFixed(2)}
+(-) INSS (10%): R$ ${inss.toFixed(2)}
+(-) Sindicato (3%): R$ ${sindicato.toFixed(2)}
+FGTS (11%): R$ ${fgts.toFixed(2)}
+Total de descontos: R$ ${totalDescontos.toFixed(2)}
+Salário Líquido: R$ ${salarioLiquido.toFixed(2)}`
+);*/
 
-```text
-Valor inválido
-```
+// 13. Dia da semana
+// Leia um número (1 a 7) e exiba o dia da semana correspondente ou "Valor inválido".
+// SOLUÇÃO:
+/*const diaSemana = Number(prompt("Digite um número de 1 a 7: "));
 
-//  14. Conceito por média
-// Faça um programa que leia duas notas parciais e calcule a média.
+switch (diaSemana) {
+  case 1:
+    alert("Domingo")
+    break;
+  case 2:
+    alert("Segunda-feira")
+    break;
+  case 3:
+    alert("Terça-feira")
+    break;
+  case 4:
+    alert("Quarta-feira")
+    break;
+  case 5:
+    alert("Quinta-feira")
+    break;
+  case 6:
+    alert("Sexta-feira")
+    break;
+  case 7:
+    alert("Sábado")
+    break;
+  default:
+    alert("Valor inválido")
+} */
 
-// | Média | Conceito |
-// |---------|----------|
-// | 9,0 a 10,0 | A |
-// | 7,5 a 9,0 | B |
-// | 6,0 a 7,5 | C |
-// | 4,0 a 6,0 | D |
-// | 0 a 4,0 | E |
+// 14. Conceito por média
+// Leia duas notas, calcule a média e exiba o conceito (A a E) e a situação (Aprovado ou Reprovado).
+// SOLUÇÃO:
 
-// Exiba:
-// - Notas;
-// - Média;
-// - Conceito;
-// - Situação.
+/*const notaE1 = Number(prompt("Digite a primeira nota: "));
+const notaE2 = Number(prompt("Digite a segunda nota: "));
+const mediaE = (notaE1 + notaE2) / 2;
+let conceito, situacao;
 
-Situação:
+if (mediaE >= 9 && mediaE <= 10) {
+    conceito = "A"
+    situacao = "Aprovado"
+} else if (mediaE >= 7.5 && mediaE < 9) {
+    conceito = "B"
+    situacao = "Aprovado"
+} else if (mediaE >= 6 && mediaE < 7.5) {
+    conceito = "C"
+    situacao = "Aprovado"
+} else if (mediaE >= 4 && mediaE < 6) {
+    conceito = "D"
+    situacao = "Reprovado"
+} else if (mediaE >= 0 && mediaE < 4) {
+    conceito = "E"
+    situacao = "Reprovado"
+} else {
+    conceito = "Inválido"
+    situacao = "Inválido"
+}
 
-// - A, B ou C → APROVADO
-// - D ou E → REPROVADO
+alert(`Média: ${mediaE.toFixed(1)}`);
+alert(`Conceito: ${conceito}`);
+alert(`Situação: ${situacao}`);*/
 
+// 15. Tipos de triângulo
+// Peça três lados, verifique se formam um triângulo e classifique em Equilátero, Isósceles ou Escaleno.
+// SOLUÇÃO:
 
+/*const ladoA = Number(prompt("Digite o primeiro lado: "))
+const ladoB = Number(prompt("Digite o segundo lado: "))
+const ladoC = Number(prompt("Digite o terceiro lado: "))
 
-//  15. Tipos de triângulo
-// Faça um programa que peça os três lados de um triângulo.
+if (ladoA < ladoB + ladoC &&
+    ladoB < ladoA + ladoC &&
+    ladoC < ladoA + ladoB) {
 
-// Verifique se os lados podem formar um triângulo.
+    if (ladoA === ladoB && ladoB === ladoC) {
+        alert("Triângulo Equilátero");
+    } else if (
+        ladoA === ladoB ||
+        ladoA === ladoC ||
+        ladoB === ladoC
+    ) {
+        alert("Triângulo Isósceles")
+    } else {
+        alert("Triângulo Escaleno")
+    }
+} else {
+    alert("Não é um triângulo válido")
+}*/
 
-// Se formarem, informe se é:
+// 16. Equação do segundo grau
+// Calcule as raízes de ax² + bx + c = 0, validando os casos de a=0 e o valor de Delta.
+// SOLUÇÃO:
 
-// - Equilátero → três lados iguais;
-// - Isósceles → dois lados iguais;
-// - Escaleno → três lados diferentes.
+/*const a = Number(prompt("Digite o valor de a: "))
+const b = Number(prompt("Digite o valor de b: "))
+const c = Number(prompt("Digite o valor de c: "))
 
-/// Dica
+// A fórmula do delta é:Δ=b2−4ac e raiz x=−b/2a
 
-// Três lados formam um triângulo quando a soma de quaisquer dois lados é maior que o terceiro.
+if (a === 0) {
+  alert("Não é uma equação do segundo grau")
+} else {
+  const delta = (b * b) - (4 * a * c)
+  if (delta < 0) {
+    alert("Não existem raízes reais.")
+  } else if (delta === 0) {
+    const x = -b / (2 * a)
+    alert(`Delta = ${delta}. Raiz única: x = ${x.toFixed(2)}`)
+  } else {
+    const x1 = (-b + Math.sqrt(delta)) / (2 * a)
+    const x2 = (-b - Math.sqrt(delta)) / (2 * a)
+    alert(`Delta = ${delta}. Raízes: x1 = ${x1.toFixed(2)}, x2 = ${x2.toFixed(2)}`)
+  }
+}*/
 
+// 17. Ano bissexto
+// Leia um ano e informe se é bissexto.
+// Ano bissexto: divisível por 4, mas não por 100, exceto se divisível por 400.
+// SOLUÇÃO:
 
+/*const ano = Number(prompt("Digite um ano: "));
 
-//  16. Equação do segundo grau
-// Faça um programa que calcule as raízes da equação:
+if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
+  alert(`${ano} é um ano bissexto.`)
+} else {
+  alert(`${ano} não é um ano bissexto.`)
+}*/
 
-// ```text
-// ax² + bx + c = 0
-// ```
+// 18. Par ou ímpar
+// Leia um inteiro e determine se é par ou ímpar.
+// SOLUÇÃO:
 
-Regras:
+/*let numero18 = Number(prompt("Digite um número inteiro: "))
 
-// - Se `a = 0`, a equação não é de segundo grau.
-// - Se `Δ < 0`, não possui raízes reais.
-// - Se `Δ = 0`, possui apenas uma raiz real.
-// - Se `Δ > 0`, possui duas raízes reais.
-
-
-//  17. Ano bissexto
-// Faça um programa que leia um ano e informe se ele é ou não bissexto.
-
-
-//  18. Par ou ímpar
-// Faça um programa que leia um número inteiro e determine se ele é par ou ímpar.
-
-// > Dica: utilize o operador módulo `%`.
-
+if (Number.isInteger(numero18)) {
+  if (numero18 % 2 === 0) {
+    alert("O número é par.")
+  } else {
+    alert("O número é ímpar.")
+  }
+} else {
+  alert("Por favor, digite um número inteiro.")
+}*/
 
 //  19. Características de um número
 // Faça um programa que leia um número e pergunte qual operação deseja realizar.
@@ -365,11 +440,32 @@ Regras:
 // - Par ou ímpar;
 // - Positivo ou negativo.
 
+/*const num19 = Number(prompt("Digite um número: "))
 
+let paridade, sinal
+
+if (Number.isInteger(num19)) {
+    if (num19 % 2 === 0) {
+        paridade = "Par"
+    } else {
+        paridade = "Ímpar"
+    }
+
+    if (num19 > 0) {
+        sinal = "Positivo"
+    } else if (num19 < 0) {
+        sinal = "Negativo"
+    } else {
+        sinal = "Zero"
+    }
+
+    alert(`O número é ${paridade} e ${sinal}.`)
+} else {
+    alert("Por favor, digite um número inteiro.")
+}*/
 
 //  20. Investigação criminal
 // Faça um programa que faça as seguintes perguntas:
-
 // 1. Telefonou para a vítima?
 // 2. Esteve no local do crime?
 // 3. Mora perto da vítima?
@@ -385,12 +481,48 @@ Classificação:
 // | 5 | Assassino |
 // | Caso contrário | Inocente |
 
+/*let positivas = 0;
 
+const respostas = [
+  "Você telefonou para a vítima? (sim/nao): ",
+  "Você esteve no local do crime? (sim/nao): ",
+  "Você mora perto da vítima? (sim/nao): ",
+  "Você devia para a vítima? (sim/nao): ",
+  "Você já trabalhou com a vítima? (sim/nao): "
+];
+
+for (const pergunta of respostas) {
+  const resp = input(pergunta).toLowerCase();
+  if (resp === "sim") {
+    positivas++;
+  }
+}
+
+if (positivas === 2) {
+  console.log("Suspeita");
+} else if (positivas >= 3 && positivas <= 4) {
+  console.log("Cúmplice");
+} else if (positivas === 5) {
+  console.log("Assassino");
+} else {
+  console.log("Inocente");
+}*/
 
 //  21. Maior e menor entre dois números
 // Faça um programa que peça dois números ao usuário e mostre qual o maior e qual o menor.
 
+/*alert("Olá! Vamos descobrir qual é o maior e o menor entre dois números inteiros.")
 
+let numero1 = Number(prompt("Digite o primeiro número: "))
+let numero2 = Number(prompt("Digite o segundo número: "))
+
+if (numero1 > numero2) {
+  alert(`O maior número é ${numero1} e o menor é ${numero2}`)
+} else {
+  alert(`O maior número é ${numero2} e o menor é ${numero1}`)
+}
+
+alert(`Os números inseridos são: ${numero1} e ${numero2}`)*/
 
 //  22. Maior e menor entre três inteiros
 // Faça um programa que receba três números inteiros e informe qual deles é o maior e qual é o menor.
@@ -398,14 +530,50 @@ Classificação:
 // ### Desafio
 // Você consegue criar mais de uma solução?
 
+/*alert("Olá! Vamos descobrir qual é o maior e o menor entre três números inteiros.")
 
+const a1 = Number(prompt("Digite o primeiro número inteiro: "))
+const b1 = Number(prompt("Digite o segundo número inteiro: "))
+const c1 = Number(prompt("Digite o terceiro número inteiro: "))
+
+let maior = a1, menor = a1
+
+if (b1 > maior) {
+  maior = b1
+}
+if (c1 > maior) {
+  maior = c1
+}
+if (b1 < menor) {
+  menor = b1
+}
+if (c1 < menor) {
+  menor = c1
+}
+
+alert(`O maior número é ${maior} e o menor número é ${menor}`)*/
 
 //  23. Par ou ímpar em C
 // Escreva um programa em C que receba um número inteiro e diga se ele é par ou ímpar.
 
 // > Dica: utilize o operador `%`.
 
+/*#include < stdio.h >
 
+    int main() {
+    //Solicita o número ao usuário
+    printf("Digite o número inteiro:");
+    scanf("%d", & numero);
+
+    //Verifica se o número é par ou ímpar
+    if (numero % 2 == 0) {
+        printf("O número %d é PAR.\n", numero);
+    } else {
+        printf("O número %d é ÍMPAR.\n", numero);
+    }
+
+    return 0;
+}*/
 
 //  24. Circunferência
 // Escreva um programa que pergunte o raio de uma circunferência e mostre:
@@ -415,6 +583,18 @@ Classificação:
 // - Área.
 
 
+/*alert("Olá! Vamos calcular o diâmetro, comprimento e área de uma circunferência a partir do raio.")
+
+const raio = Number(prompt("Digite o raio da circunferência: "))
+
+const diametro = 2 * raio
+const comprimento = 2 * Math.PI * raio
+const area = Math.PI * Math.pow(raio, 2)
+//math.pow() é uma função usada para calcular a potência de um número. Ex: 2³, usa-se a função como math.pow(2, 3).
+
+alert(`Diametro: ${diametro.toFixed(2)}`)
+alert(`Comprimento: ${comprimento.toFixed(2)}`)
+alert(`Área: ${area.toFixed(2)}`)*/
 
 //  25. Doação de sangue
 // Para doar sangue é necessário ter entre 18 e 67 anos.
@@ -423,7 +603,13 @@ Classificação:
 
 // > Utilize os operadores lógicos `&&` e `||`.
 
+/*const idade = Number(prompt("Digite a sua idade: "))
 
+if (idade >= 18 && idade <= 67) {
+    alert("Você pode doar sangue.")
+} else {
+    alert("Você não pode doar sangue.")
+}*/
 
 //  26. Validação de data
 // Escreva um programa que pergunte:
@@ -440,6 +626,26 @@ Classificação:
 
 // - Todos os meses possuem 31 dias;
 // - O ano atual é 2013.
+
+/*alert (`Sistema de validação de data`)
+
+let dia = Number(prompt("Digite o dia: "))
+let mes = Number(prompt("Digite o mes: "))
+const ano = 2013
+
+let dataValida = true
+
+if (mes < 1 || mes > 12) {
+    dataValida = false
+} else if (dia < 1 || dia > 31) {
+    dataValida = false
+}
+
+if (dataValida) {
+    alert(`À data ${dia}/${mes}/${ano} é válida`)
+} else {
+    alert(`À data ${dia}/${mes}/${ano} é invalido`)
+}*/
 
 
 
@@ -462,3 +668,14 @@ Depois:
 x = 20
 y = 10
 ```
+
+/*alert (`Sistema de troca de valores`)
+
+let x = Number(prompt("Digite o primeiro número: "))
+let y = Number(prompt("Digite o segundo número: "))
+
+let memoria = x
+x = y
+y = memoria
+
+alert(`O valor de ${x} agora é ${y}`)*/
