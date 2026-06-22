@@ -80,39 +80,111 @@ if (media >= 7) {
 //  6. Maior de três números
 // Faça um programa que leia três números e mostre o maior deles.
 
-
+let n1 = 15;
+let n2 = 25;
+let n3 = 10;
+let maior = n1;
+if (n2 > maior) {
+    maior = n2;
+}
+if (n3 > maior) {
+    maior = n3;
+}
+console.log("O maior número é: ", maior);
 
 //  7. Maior e menor de três números
 // Faça um programa que leia três números e mostre o maior e o menor deles.
 
-
+const a = 30
+const b = 20
+const c = 10
+let maiorNum = a;
+let menorNum = a;
+if (b > maiorNum) {
+    maiorNum = b;
+}
+if (c > maiorNum) {
+    maiorNum = c;
+}
+if (b < menorNum) {
+    menorNum = b;
+}
+if (c < menorNum) {
+    menorNum = c;
+}
+console.log("O maior número é: ", maiorNum);
+console.log("O menor número é: ", menorNum);
 
 //  8. Produto mais barato
 // Faça um programa que pergunte o preço de três produtos e informe qual produto deve ser comprado, sabendo que a decisão é sempre pelo mais barato.
 
+const preco1 = 50
+const preco2 = 30
+const preco3 = 20
+
+let maisBarato = preco1;
+let produtoMaisBarato = 1;
+
+if (preco2 < maisBarato) {
+    maisBarato = preco2;
+    produtoMaisBarato = 2;
+}
+if (preco3 < maisBarato) {
+    maisBarato = preco3;
+    produtoMaisBarato = 3;
+}
+console.log("O produto mais barato é o produto ", produtoMaisBarato, " com preço R$ ", maisBarato);
 
 
 //  9. Ordem decrescente
 // Faça um programa que leia três números e mostre-os em ordem decrescente.
 
+const numA = 15
+const numB = 25
+const numC = 10
 
+let maiornum = numA, meionum = numB, menornum = numC;
+
+// Verificar o maior número
+if (numB > maiornum) {
+    maiornum = numB;
+    meionum = numA;
+    menornum = numC;
+}
+if (numC > maiornum) {
+    maiornum = numC;
+    meionum = numA;
+    menornum = numB;
+}
+
+// Verificar o menor número
+if (numB < menornum) {
+    menornum = numB;
+    meionum = numA;
+}
+if (numC < menornum) {
+    menornum = numC;
+    meionum = numA;
+}
+
+console.log("Números em ordem decrescente: ", maiornum, meionum, menornum);
 
 //  10. Turno de estudo
 // Faça um programa que pergunte em que turno você estuda.
+// Digite: - M → Matutino - V → Vespertino - N → Noturno
+// Exiba: - "Bom dia!" - "Boa tarde!" - "Boa noite!" - "Valor inválido"
 
-// Digite:
+const turno = prompt("digite o turno de estudo: M, V ou N");
 
-// - M → Matutino
-// - V → Vespertino
-// - N → Noturno
-
-// Exiba:
-
-// - "Bom dia!"
-// - "Boa tarde!"
-// - "Boa noite!"
-// - "Valor inválido"
-
+if (turno === "M") {
+    console.log("Bom dia!");
+} else if (turno === "V") {
+    console.log("Boa tarde!");
+} else if (turno === "N") {
+    console.log("Boa noite!");
+} else {
+    console.log("Valor inválido");
+}
 
 
 // 11. Reajuste salarial
@@ -134,18 +206,32 @@ if (media >= 7) {
 // - Valor do aumento;
 // - Novo salário.
 
+const salario = Number(prompt("Digite o salário do colaborador: R$ "));
+let percentual, valorAumento, novoSalario;
 
+if (salario <= 280) {
+    percentual = 20;
+} else if (salario <= 700) {
+    percentual = 15;
+} else if (salario <= 1500) {
+    percentual = 10;
+} else {
+    percentual = 5;
+}
+valorAumento = salario * (percentual / 100);
+novoSalario = salario + valorAumento;
+console.log("Salário antes do reajuste: R$ ", salario.toFixed(2));
+console.log("Percentual aplicado: ", percentual, "%");
+console.log("Valor do aumento: R$ ", valorAumento.toFixed(2));
+console.log("Novo salário: R$ ", novoSalario.toFixed(2));
 
 // 12. Folha de pagamento
 // Faça um programa para cálculo de folha de pagamento.
-
 // O programa deverá pedir:
-
 // - Valor da hora trabalhada;
 // - Quantidade de horas trabalhadas no mês.
 
 // Desconto do IR
-
 // | Salário Bruto | IR |
 // |--------------|----|
 // | Até R$ 900,00 | Isento |
@@ -154,13 +240,11 @@ if (media >= 7) {
 // | Acima de R$ 2.500,00 | 20% |
 
 // Considere:
-
 // - INSS: 10%
 // - Sindicato: 3%
 // - FGTS: 11% (não é descontado)
 
 // Exemplo de saída:
-
 // ```text
 // Salário Bruto (5 * 220)     : R$ 1100,00
 // (-) IR (5%)                : R$   55,00
@@ -170,6 +254,23 @@ if (media >= 7) {
 // Salário Líquido            : R$  935,00
 // ```
 
+const valorHora = Number(prompt("Digite o valor da hora trabalhada: R$ "));
+const horasTrabalhadas = Number(prompt("Digite a quantidade de horas trabalhadas no mês: "));
+const salarioBruto = valorHora * horasTrabalhadas;
+const ir = salarioBruto * 0.11;
+const inss = salarioBruto * 0.10;
+const sindicato = salarioBruto * 0.03;
+const fgts = salarioBruto * 0.11;
+const totalDescontos = ir + inss + sindicato;
+const salarioLiquido = salarioBruto - totalDescontos;
+
+console.log('salário bruto: R$ ', salarioBruto.toFixed(2));
+console.log('(-) IR (11%): R$ ', ir.toFixed(2));
+console.log('(-) INSS (10%): R$ ', inss.toFixed(2));
+console.log('(-) Sindicato (3%): R$ ', sindicato.toFixed(2));
+console.log('FGTS (11%): R$ ', fgts.toFixed(2));
+console.log('Total de descontos: R$ ', totalDescontos.toFixed(2));
+console.log('Salário Líquido: R$ ', salarioLiquido.toFixed(2));
 
 //  13. Dia da semana
 // Faça um programa que leia um número e exiba o dia correspondente da semana.
@@ -202,7 +303,6 @@ Valor inválido
 // | 0 a 4,0 | E |
 
 // Exiba:
-
 // - Notas;
 // - Média;
 // - Conceito;
