@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configuração de codificação -->
+    <meta charset="UTF-8">
+    
+    <!-- Viewport para responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página -->
+    <title>🎬 Sistema de Cadastro de Filmes</title>
+    
+    <!-- Estilos CSS embutidos -->
+    <style>
+        /* ===================================
+           RESET E VARIÁVEIS GLOBAIS
+           =================================== */
+        
+        /* Remove margens e padding padrão do navegador */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Define variáveis CSS reutilizáveis */
+        :root {
+            --cor-primaria: #6366f1;
+            --cor-secundaria: #ec4899;
+            --cor-fundo: #f8fafc;
+            --cor-texto: #1e293b;
+            --cor-border: #e2e8f0;
+            --cor-erro: #ef4444;
+            --cor-sucesso: #10b981;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transicao: all 0.3s ease;
+        }
+
+        /* ===================================
+           ESTILOS DO BODY E LAYOUT PRINCIPAL
+           =================================== */
+
+        /* Aplica estilos ao body */
+        body {
+            /* Fonte padrão com fallback */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+            /* Cor de fundo */
+            background: linear-gradient(135deg, var(--cor-fundo) 0%, #f1f5f9 100%);
+            
+            /* Cor do texto */
+            color: var(--cor-texto);
+            
+            /* Altura mínima da página */
+            min-height: 100vh;
+            
+            /* Espaçamento interno */
+            padding: 20px;
+        }
+
+        /* Container principal que centraliza o conteúdo */
+        .container {
+            /* Largura máxima para melhor leitura */
+            max-width: 900px;
+            
+            /* Centraliza horizontalmente */
+            margin: 0 auto;
+        }
+
+        /* ===================================
+           HEADER E TÍTULO
+           =================================== */
+
+        /* Estilo do header (cabeçalho) */
+        header {
+            /* Espaçamento inferior */
+            margin-bottom: 40px;
+            
+            /* Alinhamento do texto */
+            text-align: center;
+        }
+
+        /* Estilo do título principal */
+        h1 {
+            /* Tamanho da fonte */
+            font-size: 2.5em;
+            
+            /* Espaçamento inferior */
+            margin-bottom: 10px;
+            
+            /* Cor primária */
+            color: var(--cor-primaria);
+            
+            /* Sombreado do texto */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo do subtítulo */
+        .subtitle {
+            /* Tamanho reduzido */
+            font-size: 1.1em;
+            
+            /* Cor acinzentada */
+            color: #64748b;
+            
+            /* Espaçamento */
+            margin-bottom: 30px;
+        }
+
+        /* ===================================
+           SEÇÃO DO FORMULÁRIO
+           =================================== */
+
+        /* Container do formulário */
+        .form-section {
+            /* Fundo branco */
+            background: white;
+            
+            /* Espaçamento interno */
+            padding: 30px;
+            
+            /* Bordas arredondadas */
+            border-radius: 12px;
+            
+            /* Sombra */
+            box-shadow: var(--sombra);
+            
+            /* Espaçamento inferior */
+            margin-bottom: 30px;
+        }
+
+        /* Titulo da seção de formulário */
+        .form-section h2 {
+            /* Tamanho da fonte */
+            font-size: 1.5em;
+            
+            /* Espaçamento inferior */
+            margin-bottom: 20px;
+            
+            /* Cor primária */
+            color: var(--cor-primaria);
+        }
+
+        /* Container que agrupa os campos do formulário */
+        .form-group {
+            /* Usar flexbox para layout responsivo */
+            display: grid;
+            
+            /* 3 colunas em tela grande, 1 em tela pequena */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            
+            /* Espaço entre os itens */
+            gap: 15px;
+            
+            /* Espaçamento inferior */
+            margin-bottom: 20px;
+        }
+
+        /* Estilo de cada campo do formulário */
+        .form-group input,
+        .form-group select {
+            /* Largura total */
+            width: 100%;
+            
+            /* Espaçamento interno */
+            padding: 12px;
+            
+            /* Borda */
+            border: 2px solid var(--cor-border);
+            
+            /* Bordas arredondadas */
+            border-radius: 8px;
+            
+            /* Tamanho da fonte */
+            font-size: 1em;
+            
+            /* Transição suave */
+            transition: var(--transicao);
+        }
+
+        /* Foco do input (quando clicado) */
+        .form-group input:focus,
+        .form-group select:focus {
+            /* Remove o outline padrão */
+            outline: none;
+            
+            /* Borda colorida */
+            border-color: var(--cor-primaria);
+            
+            /* Sombra ao focar */
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        /* Label dos campos do formulário */
+        .form-group label {
+            /* Fonte menor */
+            font-size: 0.9em;
+            
+            /* Cor mais clara */
+            color: #64748b;
+            
+            /* Espaçamento inferior */
+            margin-bottom: 5px;
+            
+            /* Display block para estar acima do input */
+            display: block;
+            
+            /* Fonte mais pesada */
+            font-weight: 600;
+        }
+
+        /* Wrapper que agrupa label e input */
+        .input-wrapper {
+            /* Flexbox para agrupar label e input */
+            display: flex;
+            
+            /* Direção coluna (label em cima, input embaixo) */
+            flex-direction: column;
+        }
+
+        /* ===================================
+           BOTÃO DE CADASTRO
+           =================================== */
+
+        /* Estilo do botão principal */
+        .btn-cadastrar {
+            /* Largura total */
+            width: 100%;
+            
+            /* Espaçamento interno */
+            padding: 12px 24px;
+            
+            /* Tamanho da fonte */
+            font-size: 1.1em;
+            
+            /* Cor de fundo primária */
+            background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+            
+            /* Cor do texto branco */
+            color: white;
+            
+            /* Borda */
+            border: none;
+            
+            /* Bordas arredondadas */
+            border-radius: 8px;
+            
+            /* Cursor de ponteiro */
+            cursor: pointer;
+            
+            /* Transição suave */
+            transition: var(--transicao);
+            
+            /* Fonte mais pesada */
+            font-weight: bold;
+            
+            /* Sombra */
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Hover do botão (quando passa o mouse) */
+        .btn-cadastrar:hover {
+            /* Transformação de escala */
+            transform: translateY(-2px);
+            
+            /* Aumenta a sombra */
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+        }
+
+        /* Ativo do botão (quando clicado) */
+        .btn-cadastrar:active {
+            /* Volta ao tamanho normal */
+            transform: translateY(0);
+        }
+
+        /* ===================================
+           MENSAGENS DE VALIDAÇÃO
+           =================================== */
+
+        /* Container de mensagem de erro */
+        .validation-message {
+            /* Espaçamento superior */
+            margin-top: 15px;
+            
+            /* Espaçamento interno */
+            padding: 12px 15px;
+            
+            /* Bordas arredondadas */
+            border-radius: 8px;
+            
+            /* Cor de fundo vermelha */
+            background: #fee2e2;
+            
+            /* Cor do texto vermelho */
+            color: var(--cor-erro);
+            
+            /* Borda vermelha */
+            border-left: 4px solid var(--cor-erro);
+            
+            /* Animação de entrada */
+            animation: slideInDown 0.3s ease;
+        }
+
+        /* Mensagem de sucesso */
+        .validation-message.success {
+            /* Fundo verde */
+            background: #d1fae5;
+            
+            /* Texto verde */
+            color: var(--cor-sucesso);
+            
+            /* Borda verde */
+            border-left-color: var(--cor-sucesso);
+        }
+
+        /* ===================================
+           SEÇÃO DE FILMES
+           =================================== */
+
+        /* Container da lista de filmes */
+        .movies-section {
+            /* Espaçamento interno */
+            margin-top: 30px;
+        }
+
+        /* Título da seção de filmes */
+        .movies-section h2 {
+            /* Tamanho da fonte */
+            font-size: 1.5em;
+            
+            /* Espaçamento inferior */
+            margin-bottom: 20px;
+            
+            /* Cor primária */
+            color: var(--cor-primaria);
+        }
+
+        /* Contador de filmes */
+        .counter {
+            /* Fundo branco */
+            background: white;
+            
+            /* Espaçamento interno */
+            padding: 15px 20px;
+            
+            /* Espaçamento inferior */
+            margin-bottom: 20px;
+            
+            /* Bordas arredondadas */
+            border-radius: 8px;
+            
+            /* Borda */
+            border-left: 4px solid var(--cor-primaria);
+            
+            /* Sombra */
+            box-shadow: var(--sombra);
+            
+            /* Tamanho da fonte */
+            font-size: 1.1em;
+            
+            /* Fonte mais pesada */
+            font-weight: bold;
+        }
+
+        /* ===================================
+           CARDS DE FILMES
+           =================================== */
+
+        /* Container que agrupa todos os cards */
+        .movies-container {
+            /* Grid responsivo */
+            display: grid;
+            
+            /* 2 colunas em tela grande, 1 em tela pequena */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            
+            /* Espaço entre os cards */
+            gap: 20px;
+        }
+
+        /* Card do filme */
+        .filme {
+            /* Fundo branco */
+            background: white;
+            
+            /* Bordas arredondadas */
+            border-radius: 12px;
+            
+            /* Borda */
+            border: 2px solid var(--cor-border);
+            
+            /* Espaçamento interno */
+            padding: 20px;
+            
+            /* Sombra */
+            box-shadow: var(--sombra);
+            
+            /* Transição suave */
+            transition: var(--transicao);
+            
+            /* Animação de entrada */
+            animation: slideUp 0.4s ease;
+        }
+
+        /* Hover do card (quando passa o mouse) */
+        .filme:hover {
+            /* Aumenta a sombra */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            
+            /* Move para cima */
+            transform: translateY(-5px);
+            
+            /* Borda em cor primária */
+            border-color: var(--cor-primaria);
+        }
+
+        /* Titulo do filme (nome) */
+        .filme h3 {
+            /* Tamanho da fonte */
+            font-size: 1.3em;
+            
+            /* Espaçamento inferior */
+            margin-bottom: 10px;
+            
+            /* Cor primária */
+            color: var(--cor-primaria);
+        }
+
+        /* Informações do filme (gênero e ano) */
+        .filme-info {
+            /* Espaçamento inferior */
+            margin-bottom: 15px;
+        }
+
+        /* Cada linha de informação */
+        .info-row {
+            /* Flexbox para alinhar ícone e texto */
+            display: flex;
+            
+            /* Alinhamento vertical */
+            align-items: center;
+            
+            /* Espaçamento inferior */
+            margin-bottom: 8px;
+            
+            /* Cor do texto mais clara */
+            color: #475569;
+        }
+
+        /* Ícone antes do texto */
+        .info-row span:first-child {
+            /* Espaçamento à direita */
+            margin-right: 10px;
+            
+            /* Tamanho do ícone */
+            font-size: 1.2em;
+        }
+
+        /* Botão de exclusão */
+        .btn-excluir {
+            /* Largura total */
+            width: 100%;
+            
+            /* Espaçamento interno */
+            padding: 10px;
+            
+            /* Tamanho da fonte */
+            font-size: 1em;
+            
+            /* Fundo vermelho */
+            background: var(--cor-erro);
+            
+            /* Texto branco */
+            color: white;
+            
+            /* Borda */
+            border: none;
+            
+            /* Bordas arredondadas */
+            border-radius: 6px;
+            
+            /* Cursor de ponteiro */
+            cursor: pointer;
+            
+            /* Transição suave */
+            transition: var(--transicao);
+            
+            /* Fonte mais pesada */
+            font-weight: bold;
+        }
+
+        /* Hover do botão de exclusão */
+        .btn-excluir:hover {
+            /* Fundo mais escuro */
+            background: #dc2626;
+            
+            /* Transformação de escala */
+            transform: scale(1.02);
+        }
+
+        /* ===================================
+           MENSAGEM DE LISTA VAZIA
+           =================================== */
+
+        /* Mensagem quando não há filmes */
+        .empty-state {
+            /* Alinhamento do texto */
+            text-align: center;
+            
+            /* Espaçamento */
+            padding: 40px 20px;
+            
+            /* Cor do texto mais clara */
+            color: #94a3b8;
+        }
+
+        /* Emoji grande */
+        .empty-state .emoji {
+            /* Tamanho do emoji */
+            font-size: 3em;
+            
+            /* Espaçamento inferior */
+            margin-bottom: 10px;
+        }
+
+        /* ===================================
+           ANIMAÇÕES
+           =================================== */
+
+        /* Animação de slide para cima */
+        @keyframes slideUp {
+            from {
+                /* Começa transparente */
+                opacity: 0;
+                
+                /* Começa 20px abaixo */
+                transform: translateY(20px);
+            }
+            to {
+                /* Fica opaco */
+                opacity: 1;
+                
+                /* Posição normal */
+                transform: translateY(0);
+            }
+        }
+
+        /* Animação de slide para baixo */
+        @keyframes slideInDown {
+            from {
+                /* Começa 10px acima */
+                transform: translateY(-10px);
+                
+                /* Começa transparente */
+                opacity: 0;
+            }
+            to {
+                /* Posição normal */
+                transform: translateY(0);
+                
+                /* Fica opaco */
+                opacity: 1;
+            }
+        }
+
+        /* ===================================
+           RESPONSIVIDADE
+           =================================== */
+
+        /* Estilos para telas pequenas (celulares) */
+        @media (max-width: 768px) {
+            /* Reduz o tamanho do título */
+            h1 {
+                font-size: 1.8em;
+            }
+
+            /* Reduz o padding */
+            .form-section {
+                padding: 20px;
+            }
+
+            /* Grid com 1 coluna em telas pequenas */
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+
+            /* Grid com 1 coluna em telas pequenas */
+            .movies-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Container principal que centraliza o conteúdo -->
+    <div class="container">
+        
+        <!-- HEADER DA PÁGINA -->
+        <header>
+            <!-- Título principal -->
+            <h1>🎬 Cadastro de Filmes</h1>
+            <!-- Subtítulo -->
+            <p class="subtitle">Organize seus filmes favoritos em um único lugar</p>
+        </header>
+
+        <!-- SEÇÃO DO FORMULÁRIO -->
+        <section class="form-section">
+            <!-- Título da seção -->
+            <h2>Adicionar Novo Filme</h2>
+
+            <!-- Formulário com campos de entrada -->
+            <form id="formulario">
+                <!-- Grupo de campos do formulário -->
+                <div class="form-group">
+                    <!-- Campo de nome do filme -->
+                    <div class="input-wrapper">
+                        <label for="nome">Nome do Filme</label>
+                        <input
+                            type="text"
+                            id="nome"
+                            placeholder="Ex: Homem-Aranha"
+                        >
+                    </div>
+
+                    <!-- Campo de gênero do filme -->
+                    <div class="input-wrapper">
+                        <label for="genero">Gênero</label>
+                        <input
+                            type="text"
+                            id="genero"
+                            placeholder="Ex: Ação, Drama, Comédia"
+                        >
+                    </div>
+
+                    <!-- Campo de ano de lançamento -->
+                    <div class="input-wrapper">
+                        <label for="ano">Ano de Lançamento</label>
+                        <input
+                            type="number"
+                            id="ano"
+                            placeholder="Ex: 2024"
+                            min="1900"
+                            max="2100"
+                        >
+                    </div>
+                </div>
+
+                <!-- Botão para cadastrar o filme -->
+                <button type="button" class="btn-cadastrar" id="botaoCadastrar">
+                    ➕ Cadastrar Filme
+                </button>
+
+                <!-- Container para mensagens de validação -->
+                <div id="mensagemValidacao"></div>
+            </form>
+        </section>
+
+        <!-- SEÇÃO DE FILMES CADASTRADOS -->
+        <section class="movies-section">
+            <!-- Título da seção -->
+            <h2>Filmes Cadastrados</h2>
+
+            <!-- Contador de filmes -->
+            <div class="counter">
+                Filmes cadastrados: <span id="contador">0</span>
+            </div>
+
+            <!-- Container para os cards dos filmes -->
+            <div id="listaFilmes" class="movies-container">
+                <!-- Mensagem de lista vazia -->
+                <div class="empty-state">
+                    <div class="emoji">🍿</div>
+                    <p>Nenhum filme cadastrado ainda. Comece adicionando seus filmes favoritos!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SCRIPT JAVASCRIPT -->
+    <script>
+        /* ===================================
+           VARIÁVEIS GLOBAIS
+           =================================== */
+
+        // Array que armazena os filmes cadastrados
+        let filmes = [];
+
+        // Referência ao elemento de entrada do nome
+        const inputNome = document.getElementById("nome");
+
+        // Referência ao elemento de entrada do gênero
+        const inputGenero = document.getElementById("genero");
+
+        // Referência ao elemento de entrada do ano
+        const inputAno = document.getElementById("ano");
+
+        // Referência ao botão de cadastrar
+        const botaoCadastrar = document.getElementById("botaoCadastrar");
+
+        // Referência ao container de filmes
+        const listaFilmes = document.getElementById("listaFilmes");
+
+        // Referência ao elemento de mensagem de validação
+        const mensagemValidacao = document.getElementById("mensagemValidacao");
+
+        // Referência ao contador de filmes
+        const contador = document.getElementById("contador");
+
+        /* ===================================
+           EVENT LISTENERS
+           =================================== */
+
+        // Adiciona um ouvinte para o clique no botão de cadastrar
+        botaoCadastrar.addEventListener("click", function() {
+            // Chama a função de cadastro de filme
+            cadastrarFilme();
+        });
+
+        // Permite cadastrar filme ao pressionar Enter no último input
+        inputAno.addEventListener("keyup", function(evento) {
+            // Verifica se a tecla pressionada foi Enter (keyCode 13)
+            if (evento.keyCode === 13) {
+                // Chama a função de cadastro
+                cadastrarFilme();
+            }
+        });
+
+        /* ===================================
+           FUNÇÃO DE CADASTRO DE FILME
+           =================================== */
+
+        // Função que cadastra um novo filme
+        function cadastrarFilme() {
+            // Captura o valor digitado no campo de nome
+            const nome = inputNome.value.trim();
+
+            // Captura o valor digitado no campo de gênero
+            const genero = inputGenero.value.trim();
+
+            // Captura o valor digitado no campo de ano
+            const ano = inputAno.value.trim();
+
+            // VALIDAÇÃO: Verifica se algum campo está vazio
+            if (nome === "" || genero === "" || ano === "") {
+                // Exibe mensagem de erro
+                exibirMensagem("Preencha todos os campos!", false);
+
+                // Para a execução da função
+                return;
+            }
+
+            // VALIDAÇÃO: Verifica se o ano é válido
+            if (ano < 1900 || ano > 2100) {
+                // Exibe mensagem de erro
+                exibirMensagem("Digite um ano válido (1900-2100)!", false);
+
+                // Para a execução da função
+                return;
+            }
+
+            // Cria um objeto com os dados do filme
+            const filme = {
+                // ID único baseado no timestamp
+                id: Date.now(),
+                
+                // Nome do filme
+                nome: nome,
+                
+                // Gênero do filme
+                genero: genero,
+                
+                // Ano de lançamento
+                ano: ano
+            };
+
+            // Adiciona o filme ao array de filmes
+            filmes.push(filme);
+
+            // Exibe mensagem de sucesso
+            exibirMensagem("Filme cadastrado com sucesso! 🎉", true);
+
+            // Limpa os campos do formulário
+            limparFormulario();
+
+            // Atualiza a exibição dos filmes
+            atualizarListaFilmes();
+
+            // Atualiza o contador
+            atualizarContador();
+        }
+
+        /* ===================================
+           FUNÇÃO DE EXCLUSÃO DE FILME
+           =================================== */
+
+        // Função que remove um filme da lista
+        function excluirFilme(id) {
+            // Encontra o índice do filme no array
+            const indice = filmes.findIndex(function(filme) {
+                // Compara o ID do filme
+                return filme.id === id;
+            });
+
+            // Verifica se o filme foi encontrado
+            if (indice !== -1) {
+                // Remove o filme do array
+                filmes.splice(indice, 1);
+
+                // Atualiza a exibição dos filmes
+                atualizarListaFilmes();
+
+                // Atualiza o contador
+                atualizarContador();
+            }
+        }
+
+        /* ===================================
+           FUNÇÃO DE ATUALIZAÇÃO DA LISTA
+           =================================== */
+
+        // Função que atualiza a exibição dos filmes na página
+        function atualizarListaFilmes() {
+            // Limpa o container de filmes
+            listaFilmes.innerHTML = "";
+
+            // Verifica se existem filmes cadastrados
+            if (filmes.length === 0) {
+                // Cria elemento de estado vazio
+                const emptyState = document.createElement("div");
+
+                // Adiciona classe de estilo
+                emptyState.classList.add("empty-state");
+
+                // Adiciona o conteúdo HTML
+                emptyState.innerHTML = `
+                    <div class="emoji">🍿</div>
+                    <p>Nenhum filme cadastrado ainda. Comece adicionando seus filmes favoritos!</p>
+                `;
+
+                // Adiciona o elemento ao container
+                listaFilmes.appendChild(emptyState);
+
+                // Para a execução da função
+                return;
+            }
+
+            // Percorre todos os filmes
+            filmes.forEach(function(filme) {
+                // Cria um novo card do filme
+                criarCardFilme(filme);
+            });
+        }
+
+        /* ===================================
+           FUNÇÃO DE CRIAÇÃO DE CARD
+           =================================== */
+
+        // Função que cria um card visual para o filme
+        function criarCardFilme(filme) {
+            // Cria um novo elemento div
+            const card = document.createElement("div");
+
+            // Adiciona a classe de estilo "filme"
+            card.classList.add("filme");
+
+            // Cria o conteúdo HTML do card
+            card.innerHTML = `
+                <!-- Título do filme com ícone -->
+                <h3>🎬 ${filme.nome}</h3>
+
+                <!-- Container de informações do filme -->
+                <div class="filme-info">
+                    <!-- Linha com o gênero -->
+                    <div class="info-row">
+                        <span>🎭</span>
+                        <strong>${filme.genero}</strong>
+                    </div>
+
+                    <!-- Linha com o ano -->
+                    <div class="info-row">
+                        <span>📅</span>
+                        <strong>${filme.ano}</strong>
+                    </div>
+                </div>
+
+                <!-- Botão de exclusão -->
+                <button class="btn-excluir" onclick="excluirFilme(${filme.id})">
+                    🗑️ Excluir
+                </button>
+            `;
+
+            // Adiciona o card ao container de filmes
+            listaFilmes.appendChild(card);
+        }
+
+        /* ===================================
+           FUNÇÃO DE ATUALIZAÇÃO DO CONTADOR
+           =================================== */
+
+        // Função que atualiza o contador de filmes
+        function atualizarContador() {
+            // Define o conteúdo do contador como o total de filmes
+            contador.textContent = filmes.length;
+        }
+
+        /* ===================================
+           FUNÇÃO DE LIMPEZA DO FORMULÁRIO
+           =================================== */
+
+        // Função que limpa os campos do formulário
+        function limparFormulario() {
+            // Limpa o campo de nome
+            inputNome.value = "";
+
+            // Limpa o campo de gênero
+            inputGenero.value = "";
+
+            // Limpa o campo de ano
+            inputAno.value = "";
+
+            // Coloca o foco no campo de nome para facilitar novo cadastro
+            inputNome.focus();
+        }
+
+        /* ===================================
+           FUNÇÃO DE EXIBIÇÃO DE MENSAGENS
+           =================================== */
+
+        // Função que exibe mensagens de validação ou sucesso
+        function exibirMensagem(texto, sucesso) {
+            // Limpa mensagens anteriores
+            mensagemValidacao.innerHTML = "";
+
+            // Cria um novo elemento div
+            const mensagem = document.createElement("div");
+
+            // Adiciona a classe base
+            mensagem.classList.add("validation-message");
+
+            // Se for sucesso, adiciona a classe de sucesso
+            if (sucesso) {
+                mensagem.classList.add("success");
+            }
+
+            // Define o texto da mensagem
+            mensagem.textContent = texto;
+
+            // Adiciona a mensagem ao container
+            mensagemValidacao.appendChild(mensagem);
+
+            // Remove a mensagem após 4 segundos
+            setTimeout(function() {
+                // Verifica se a mensagem ainda existe
+                if (mensagem.parentNode) {
+                    // Remove o elemento do DOM
+                    mensagem.remove();
+                }
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
